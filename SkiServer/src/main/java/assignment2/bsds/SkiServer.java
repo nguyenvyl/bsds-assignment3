@@ -13,21 +13,24 @@ public class SkiServer {
 
   //Method handling HTTP GET requests.
   @GET
-  @Path("myvert/{skierId}/{dayNum}")
+  @Path("myvert/{skierId}&{dayNum}")
   @Produces(MediaType.TEXT_PLAIN)
-  public String getData(@PathParam("skierId") int skierId, @PathParam("dayNum") int dayNum) {
+  public String getData(@PathParam("skierId") int skierId,
+                        @PathParam("dayNum") int dayNum)
+  {
     return "Skier ID: " + skierId + "  Day: " + dayNum;
   }
 
   // Method handling HTTP POST requests.
   @POST
-  @Path("load/{resortId}/{dayNum}/{timestamp}/{skierId}/{liftId}")
+  @Path("load/{resortId}&{dayNum}&{timestamp}&{skierId}&{liftId}")
   @Consumes(MediaType.TEXT_PLAIN)
-  public String postData(@PathParam("resortId") int resortId, @PathParam("dayNum") int dayNum,
-                      @PathParam("timestamp") int time, @PathParam("skierId") int skierId,
-                      @PathParam("liftId") int liftId)
+  public String postData(@PathParam("resortId") int resortId,
+                         @PathParam("dayNum") int dayNum,
+                         @PathParam("skierId") int skierId,
+                         @PathParam("liftId") int liftId,
+                         @PathParam("timestamp") int time)
   {
-    return "Resort: " + resortId + "\nDay: " + dayNum + "\nTime: " + time + "\nSkier: " + skierId
-        + "\nLift: " + liftId;
+    return "Wow new row of data! " + resortId + " " + dayNum + " " + time + " " + skierId + " " + liftId;
   }
 }
