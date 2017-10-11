@@ -8,22 +8,25 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.crypto.Data;
-
 import bsdsass2testdata.RFIDLiftData;
+import jersey.repackaged.com.google.common.collect.Lists;
 
 /**
  * Created by irenakushner on 10/8/17.
  */
 public class SkiClient {
 
+  public static final int TASK_LIST_SIZE = 1000;
+
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-    System.out.println("Threads: " + args[0]);
     System.out.println("Client starting...time: " + System.currentTimeMillis() / 1000);
 
-    // Commandline can specify number of threads; default is 1
-    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : 1;
+    // Commandline can specify number of threads; otherwise default is used
+    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : 250;
+    System.out.println("Threads: " + numThreads);
+    //final String postURL = "http://ec2-34-215-21-235.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
+    final String postURL = "http://localhost:8080/rest/load/";
 
     ExecutorService exec = Executors.newFixedThreadPool(numThreads);
 
@@ -33,8 +36,9 @@ public class SkiClient {
 
     // Send each record to the Server's POST method via a PostTask
     List<PostTask> postTasks = new ArrayList<>();
-    for (RFIDLiftData data : dayOneData) {
-      postTasks.add(new PostTask(data));
+
+    for(List<RFIDLiftData> subList : Lists.partition(dayOneData, TASK_LIST_SIZE)) {
+        postTasks.add(new PostTask(subList, postURL));
     }
 
     // Execute all tasks

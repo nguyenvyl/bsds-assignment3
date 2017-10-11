@@ -1,5 +1,6 @@
 package assignment2.bsds;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 
 import javax.ws.rs.client.Client;
@@ -17,27 +18,24 @@ import bsdsass2testdata.RFIDLiftData;
  */
 public class PostTask implements Callable<TaskResult> {
 
-  private RFIDLiftData data;
-  private String serverURL;
+  private List<RFIDLiftData> dataList;
   private Client client;
   private WebTarget webTarget;
   private TaskResult result;
 
 
-  public PostTask(RFIDLiftData data) {
-    this.data = data;
-    //TODO: define URL somewhere else, or have commandline input specify
-    this.serverURL = "http://localhost:8080/rest/load/";
+  public PostTask(List<RFIDLiftData> dataList, String url) {
+    this.dataList = dataList;
+    //this.serverURL = "http://localhost:8080/rest/load/";
     this.client = ClientBuilder.newClient();
-    this.webTarget = client.target(serverURL);
+    this.webTarget = client.target(url);
     this.result = new TaskResult();
   }
 
-  private void makePostRequest() {
+  private void makePostRequest(RFIDLiftData data) {
 
     Response response = null;
     long start = System.currentTimeMillis();
-    Integer output = null;
 
     Form form = new Form();
     form.param("resortId", Integer.toString(data.getResortID()));
@@ -48,7 +46,6 @@ public class PostTask implements Callable<TaskResult> {
 
     try {
       response = webTarget.request().post(Entity.form(form));
-      output = response.readEntity(Integer.class);
       response.close();
     }
     catch (Exception e) {
@@ -66,7 +63,11 @@ public class PostTask implements Callable<TaskResult> {
 
   @Override
   public TaskResult call() throws Exception {
-    makePostRequest();
+
+    for(RFIDLiftData data : dataList){
+      makePostRequest(data);
+    }
+
     client.close();
     return this.result;
   }
