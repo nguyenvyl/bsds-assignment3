@@ -26,7 +26,6 @@ public class PostTask implements Callable<TaskResult> {
 
   public PostTask(List<RFIDLiftData> dataList, String url) {
     this.dataList = dataList;
-    //this.serverURL = "http://localhost:8080/rest/load/";
     this.client = ClientBuilder.newClient();
     this.webTarget = client.target(url);
     this.result = new TaskResult();
