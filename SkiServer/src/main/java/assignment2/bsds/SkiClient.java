@@ -56,6 +56,8 @@ public class SkiClient {
     for (Future<TaskResult> tr : futureResults)
       results.add(tr.get());
     StatGenerator stats = new StatGenerator(results);
+    LatencyChart chart = new LatencyChart(results);
+    chart.generateChart();
 
     System.out.println("Total number of requests sent: " + stats.getNumRequests());
     System.out.println("Total number of successful responses: " + stats.getNumSuccesses());
@@ -63,6 +65,7 @@ public class SkiClient {
 
     System.out.println("Mean latency: " + stats.mean() + " milliseconds");
     System.out.println("Median latency: " + stats.median() + " milliseconds");
+    System.out.println("100th percentile latency: " + stats.latencyPercentile(100) + " milliseconds");
     System.out.println("99th percentile latency: " + stats.latencyPercentile(99) + " milliseconds");
     System.out.println("95th percentile latency: " + stats.latencyPercentile(95) + " milliseconds");
 
