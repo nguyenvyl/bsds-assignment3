@@ -1,5 +1,7 @@
 package assignment2.bsds;
 
+import com.google.gson.Gson;
+
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,7 +12,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.Response;
 
 import bsdsass2testdata.RFIDLiftData;
@@ -39,19 +40,17 @@ public class PostTask implements Callable<TaskResult> {
     long start = System.currentTimeMillis();
     Long timeBucket = null;
 
-    Form form = new Form();
-    form.param("resortId", Integer.toString(data.getResortID()));
-    form.param("dayNum", Integer.toString(data.getDayNum()));
-    form.param("skierId", Integer.toString(data.getSkierID()));
-    form.param("liftId", Integer.toString(data.getLiftID()));
-    form.param("timestamp", Integer.toString(data.getTime()));
+    Gson gson = new Gson();
+    String json = gson.toJson(data);
 
     try {
-      response = webTarget.request().post(Entity.form(form));
+//      SkiServer test = new SkiServer();
+//      test.postData(json);
+      response = webTarget.request().post(Entity.json(json));
       response.close();
       Calendar calendar = Calendar.getInstance();
       Date timestamp = new Timestamp(calendar.getTime().getTime()); // in milliseconds
-      timeBucket = timestamp.getTime() / 10; // divide by 1000 to get one-second time bucket
+      timeBucket = timestamp.getTime() / 100; // divide by 1000 to get one-second time bucket
     }
     catch (Exception e) {
       System.err.println("Problem making Post request");
