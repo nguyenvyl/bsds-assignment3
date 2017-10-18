@@ -1,7 +1,5 @@
 package assignment2.bsds;
 
-import com.google.gson.Gson;
-
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,11 +7,10 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
-
-import bsdsass2testdata.RFIDLiftData;
 
 /**
  * A task which can be passed to an Executor object
@@ -21,25 +18,29 @@ import bsdsass2testdata.RFIDLiftData;
  */
 public class PostTask implements Callable<TaskResult> {
 
-  private List<RFIDLiftData> dataList;
-  private Client client;
+  //private List<RFIDLiftData> dataList;
+  private List<String> jsonList;
   private WebTarget webTarget;
   private TaskResult result;
+  private Client client;
 
-  public PostTask(List<RFIDLiftData> dataList, WebTarget webTarget) {
-    this.dataList = dataList;
-    this.webTarget = webTarget;
+  public PostTask(/*List<RFIDLiftData> dataList*/ List<String> jsonList, String url) {
+    //this.dataList = dataList;
+    this.client = ClientBuilder.newClient();
+    this.webTarget = client.target(url);
+    this.jsonList = jsonList;
     this.result = new TaskResult();
   }
 
-  private void makePostRequest(RFIDLiftData data) {
+//  private void makePostRequest(RFIDLiftData data) {
+  private void makePostRequest(String json) {
 
     Response response = null;
     long start = System.currentTimeMillis();
     Long timeBucket = null;
 
-    Gson gson = new Gson();
-    String json = gson.toJson(data);
+//    Gson gson = new Gson();
+//    String json = gson.toJson(data);
 
     try {
       response = webTarget.request().post(Entity.json(json));
@@ -65,10 +66,14 @@ public class PostTask implements Callable<TaskResult> {
   @Override
   public TaskResult call() throws Exception {
 
-    for(RFIDLiftData data : dataList){
-      makePostRequest(data);
+//    for(RFIDLiftData data : dataList){
+//      makePostRequest(data);
+//    }
+    for(String json : jsonList){
+      makePostRequest(json);
     }
 
+    client.close();
     return this.result;
   }
 }

@@ -1,5 +1,7 @@
 package assignment2.bsds;
 
+import com.google.gson.Gson;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import jersey.repackaged.com.google.common.collect.Lists;
  */
 public class SkiClient {
 
-  public static final int TASK_LIST_SIZE = 1000;
+  public static final int TASK_LIST_SIZE = 100;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
@@ -33,24 +35,34 @@ public class SkiClient {
     //final String postURL = "http://ec2-34-215-21-235.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
     final String postURL = "http://localhost:8080/rest/load";
 
-    Client client = ClientBuilder.newClient();
-    WebTarget postTarget = client.target(postURL);
+    //Client client = ClientBuilder.newClient();
+    //WebTarget postTarget = client.target(postURL);
 
     ExecutorService exec = Executors.newFixedThreadPool(numThreads);
 
     // Read every record in the file containing a day of skier data
     DataReader reader = new DataReader();
     List<RFIDLiftData> dayOneData = reader.readData();
+    List<String> dayOneJsons = new ArrayList<>();
 
     // Send each record to the Server's POST method via a PostTask
     List<PostTask> postTasks = new ArrayList<>();
 
-//    for (int i = 0; i < 10; i++) {
-//      postTasks.add(new PostTask(dayOneData.subList(i, i+1), target));
+    Gson gson = new Gson();
+
+//    for (int i = 0; i < 100; i++) {
+//      String json = gson.toJson(dayOneData.subList(i, i+1).get(0));
+//      dayOneJsons.add(json);
 //    }
+//    postTasks.add(new PostTask(dayOneJsons, postTarget));
 
     for(List<RFIDLiftData> subList : Lists.partition(dayOneData, TASK_LIST_SIZE)) {
-        postTasks.add(new PostTask(subList, postTarget));
+
+      for(RFIDLiftData liftdata : subList) {
+        String json = gson.toJson(liftdata);
+        dayOneJsons.add(json);
+      }
+      postTasks.add(new PostTask(dayOneJsons, postURL));
     }
 
     // Execute all tasks
@@ -60,7 +72,7 @@ public class SkiClient {
     exec.shutdown();
     exec.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS); // Blocks until all threads terminated
 
-    client.close();
+    //client.close();
     long endTime = System.currentTimeMillis();
     System.out.println("All threads complete... time: " + System.currentTimeMillis());
 

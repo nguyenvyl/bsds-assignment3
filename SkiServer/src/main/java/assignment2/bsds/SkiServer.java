@@ -30,8 +30,9 @@ public class SkiServer {
   public int getData(@PathParam("skierId") int skierId,
                         @PathParam("dayNum") int dayNum) {
 
-    String query = "SELECT SUM(height) as TOTAL_VERTICAL FROM (SELECT SkierId, LiftID FROM SkierData WHERE Day = " +
-        dayNum + ") skiers LEFT JOIN LiftHeights ON skiers.LiftID = LiftHeights.liftId" +
+    String query = "SELECT COUNT(skier.LiftID) as Lift_Rides, SUM(height) as TOTAL_VERTICAL " +
+        "FROM (SELECT SkierId, LiftID FROM SkierData WHERE Day = " + dayNum + ") skiers " +
+        "LEFT JOIN LiftHeights ON skiers.LiftID = LiftHeights.liftId" +
         " GROUP BY SkierId HAVING SkierId = " + skierId;
 
     String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
@@ -95,6 +96,7 @@ public class SkiServer {
     Integer rs;
 
     try {
+      Class.forName("com.mysql.jdbc.Driver");
       conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
       stmt = conn.createStatement();
       rs = stmt.executeUpdate(query);
