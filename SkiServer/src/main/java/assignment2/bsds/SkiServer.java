@@ -29,61 +29,20 @@ public class SkiServer {
   public String getData(@PathParam("skierId") int skierId,
                         @PathParam("dayNum") int dayNum) {
     return "Skier ID: " + skierId + "  Day: " + dayNum;
+
   }
 
-  // Method handling HTTP POST requests.
-//  @POST
-//  @Path("load")
-//  @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-//  public Integer postData(@FormParam("resortId") String resortId,
-//                          @FormParam("dayNum") String dayNum,
-//                          @FormParam("skierId") String skierId,
-//                          @FormParam("liftId") String liftId,
-//                          @FormParam("timestamp") String timestamp) {
-//
-//    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
-//    String USERNAME = "root";
-//    String PASSWORD = "password";
-//
-//    String query = "INSERT INTO SkierData (ResortId, Day, SkierId, LiftId, Time) VALUES (" +
-//        Integer.parseInt(resortId) + ","
-//        + Integer.parseInt(dayNum) + ","
-//        + Integer.parseInt(skierId) + ","
-//        + Integer.parseInt(liftId) + ","
-//        + Integer.parseInt(timestamp) + ");";
-//    System.out.println("*** ResortId: " + Integer.parseInt(resortId));
-//
-//    Connection conn = null;
-//    Statement stmt = null;
-//    Integer rs = null;
-//
-//    try {
-//      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-//      stmt = conn.createStatement();
-//      rs = stmt.executeUpdate(query);
-//      System.out.println("*** Query executed! " + query);
-//    } catch (SQLException e) {
-//      e.printStackTrace();
-//    } finally {
-//      try {
-//        if (stmt != null)
-//          stmt.close();
-////        if (rs != null)
-////          rs.close();
-//        if (conn != null)
-//          conn.close();
-//      } catch (Exception e) {
-//        e.printStackTrace();
-//      }
-//
-//      return 0;
-//    }
-//  }
 
   @POST
   @Path("load")
   @Consumes(MediaType.APPLICATION_JSON)
   public Integer postData(String json) {
+
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
 
     String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
     String USERNAME = "root";
@@ -107,7 +66,6 @@ public class SkiServer {
       conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
       stmt = conn.createStatement();
       rs = stmt.executeUpdate(query);
-      System.out.println("*** Query executed! " + query);
       return rs;
     } catch (SQLException e) {
       e.printStackTrace();

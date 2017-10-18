@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
@@ -27,10 +26,9 @@ public class PostTask implements Callable<TaskResult> {
   private WebTarget webTarget;
   private TaskResult result;
 
-  public PostTask(List<RFIDLiftData> dataList, String url) {
+  public PostTask(List<RFIDLiftData> dataList, WebTarget webTarget) {
     this.dataList = dataList;
-    this.client = ClientBuilder.newClient();
-    this.webTarget = client.target(url);
+    this.webTarget = webTarget;
     this.result = new TaskResult();
   }
 
@@ -44,8 +42,6 @@ public class PostTask implements Callable<TaskResult> {
     String json = gson.toJson(data);
 
     try {
-//      SkiServer test = new SkiServer();
-//      test.postData(json);
       response = webTarget.request().post(Entity.json(json));
       response.close();
       Calendar calendar = Calendar.getInstance();
@@ -73,7 +69,7 @@ public class PostTask implements Callable<TaskResult> {
       makePostRequest(data);
     }
 
-    client.close();
+  //  client.close();
     return this.result;
   }
 }
