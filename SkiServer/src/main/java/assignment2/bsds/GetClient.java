@@ -1,6 +1,5 @@
 package assignment2.bsds;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -13,50 +12,37 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 
-import bsdsass2testdata.RFIDLiftData;
-import jersey.repackaged.com.google.common.collect.Lists;
 
 /**
- * Created by irenakushner on 10/8/17.
+ * Created by irenakushner on 10/17/17.
  */
-public class SkiClient {
+public class GetClient {
 
-  public static final int TASK_LIST_SIZE = 1000;
+  public static final int N_THREADS = 100;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
     System.out.println("Client starting...time: " + System.currentTimeMillis() / 1000);
 
-    // Commandline can specify number of threads; otherwise default is used
-    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : 100;
-    System.out.println("Threads: " + numThreads);
-    //final String postURL = "http://ec2-34-215-21-235.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
-    final String postURL = "http://localhost:8080/rest/load";
+    final String baseURL = "http://localhost:8080/rest/myvert/";
 
     Client client = ClientBuilder.newClient();
-    WebTarget postTarget = client.target(postURL);
 
-    ExecutorService exec = Executors.newFixedThreadPool(numThreads);
-
-    // Read every record in the file containing a day of skier data
-    DataReader reader = new DataReader();
-    List<RFIDLiftData> dayOneData = reader.readData();
+    ExecutorService exec = Executors.newFixedThreadPool(N_THREADS);
 
     // Send each record to the Server's POST method via a PostTask
-    List<PostTask> postTasks = new ArrayList<>();
+    List<GetTask> getTasks = new ArrayList<>();
 
-//    for (int i = 0; i < 10; i++) {
-//      postTasks.add(new PostTask(dayOneData.subList(i, i+1), target));
-//    }
-
-    for(List<RFIDLiftData> subList : Lists.partition(dayOneData, TASK_LIST_SIZE)) {
-        postTasks.add(new PostTask(subList, postTarget));
+    for(int skierId = 0; skierId < 40000; skierId++) {
+      String getUrl = baseURL + skierId + "/1"; // for now, we only have day 1
+      WebTarget postTarget = client.target(getUrl);
+      getTasks.add(new GetTask(postTarget));
     }
 
     // Execute all tasks
     System.out.println("All threads running...");
     long startTime = System.currentTimeMillis();
-    List<Future<TaskResult>> futureResults = exec.invokeAll(postTasks);
+    List<Future<TaskResult>> futureResults = exec.invokeAll(getTasks);
     exec.shutdown();
     exec.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS); // Blocks until all threads terminated
 

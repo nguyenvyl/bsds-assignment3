@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -24,12 +25,49 @@ public class SkiServer {
 
   //Method handling HTTP GET requests.
   @GET
-  @Path("myvert/{skierId}&{dayNum}")
+  @Path("myvert/{skierId}/{dayNum}")
   @Produces(MediaType.TEXT_PLAIN)
-  public String getData(@PathParam("skierId") int skierId,
+  public int getData(@PathParam("skierId") int skierId,
                         @PathParam("dayNum") int dayNum) {
-    return "Skier ID: " + skierId + "  Day: " + dayNum;
 
+    String query = "SELECT SUM(height) as TOTAL_VERTICAL FROM (SELECT SkierId, LiftID FROM SkierData WHERE Day = " +
+        dayNum + ") skiers LEFT JOIN LiftHeights ON skiers.LiftID = LiftHeights.liftId" +
+        " GROUP BY SkierId HAVING SkierId = " + skierId;
+
+    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
+    String USERNAME = "root";
+    String PASSWORD = "password";
+
+    Connection conn = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+    int totalVert = 0;
+
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+      stmt = conn.createStatement();
+      rs = stmt.executeQuery(query);
+      while (rs.next()) {
+        totalVert = rs.getInt(1);
+      }
+      return totalVert;
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } finally {
+      try {
+        if (stmt != null)
+          stmt.close();
+        if(rs != null)
+          rs.close();
+        if (conn != null)
+          conn.close();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+
+      return totalVert;
+    }
   }
 
 
@@ -37,12 +75,6 @@ public class SkiServer {
   @Path("load")
   @Consumes(MediaType.APPLICATION_JSON)
   public Integer postData(String json) {
-
-    try {
-      Class.forName("com.mysql.jdbc.Driver");
-    } catch (ClassNotFoundException e) {
-      e.printStackTrace();
-    }
 
     String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
     String USERNAME = "root";
@@ -60,7 +92,7 @@ public class SkiServer {
 
     Connection conn = null;
     Statement stmt = null;
-    Integer rs = null;
+    Integer rs;
 
     try {
       conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
