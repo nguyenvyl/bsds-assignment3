@@ -2,8 +2,11 @@ package assignment2.bsds;
 
 import com.google.gson.Gson;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,7 +24,23 @@ import bsdsass2testdata.RFIDLiftData;
 @Path("/")
 public class SkiServer {
 
-  private Connection connection;
+  private static BasicDataSource dataSource = getDataSource();
+
+  private static BasicDataSource getDataSource() {
+    if (dataSource == null) {
+      BasicDataSource ds = new BasicDataSource();
+      ds.setUrl("jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication");
+      ds.setUsername("root");
+      ds.setPassword("password");
+      ds.setDriverClassName("com.mysql.jdbc.Driver");
+      ds.setInitialSize(10);
+      ds.setMaxTotal(100);
+//      ds.setMinIdle(5);
+//      ds.setMaxIdle(10);
+      dataSource = ds;
+    }
+    return dataSource;
+  }
 
   //Method handling HTTP GET requests.
   @GET
@@ -75,11 +94,11 @@ public class SkiServer {
   @POST
   @Path("load")
   @Consumes(MediaType.APPLICATION_JSON)
-  public Integer postData(String json) {
+  public int postData(String json) {
 
-    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
-    String USERNAME = "root";
-    String PASSWORD = "password";
+//    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
+//    String USERNAME = "root";
+//    String PASSWORD = "password";
 
     Gson gson = new Gson();
     RFIDLiftData data = gson.fromJson(json, RFIDLiftData.class);
@@ -92,21 +111,26 @@ public class SkiServer {
         + data.getTime() + ");";
 
     Connection conn = null;
-    Statement stmt = null;
+    //Statement stmt = null;
+    PreparedStatement prepStatement = null;
+
     Integer rs;
 
     try {
-      Class.forName("com.mysql.jdbc.Driver");
-      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-      stmt = conn.createStatement();
-      rs = stmt.executeUpdate(query);
+//      Class.forName("com.mysql.jdbc.Driver");
+//      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+      conn = dataSource.getConnection();
+      prepStatement = conn.prepareStatement(query);
+      rs = prepStatement.executeUpdate();
+      //stmt = conn.createStatement();
+      //rs = stmt.executeUpdate(query);
       return rs;
     } catch (SQLException e) {
       e.printStackTrace();
     } finally {
       try {
-        if (stmt != null)
-          stmt.close();
+        if (prepStatement != null)
+          prepStatement.close();
         if (conn != null)
           conn.close();
       } catch (Exception e) {

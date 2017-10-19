@@ -23,6 +23,7 @@ public class PostTask implements Callable<TaskResult> {
   private WebTarget webTarget;
   private TaskResult result;
   private Client client;
+  //private String url;
 
   public PostTask(/*List<RFIDLiftData> dataList*/ List<String> jsonList, String url) {
     //this.dataList = dataList;
@@ -30,6 +31,7 @@ public class PostTask implements Callable<TaskResult> {
     this.webTarget = client.target(url);
     this.jsonList = jsonList;
     this.result = new TaskResult();
+    //this.url = url;
   }
 
 //  private void makePostRequest(RFIDLiftData data) {
@@ -40,7 +42,7 @@ public class PostTask implements Callable<TaskResult> {
     Long timeBucket = null;
 
 //    Gson gson = new Gson();
-//    String json = gson.toJson(data);
+//    String json = gson.toJson(data)
 
     try {
       response = webTarget.request().post(Entity.json(json));
