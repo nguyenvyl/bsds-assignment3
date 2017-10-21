@@ -54,20 +54,21 @@ public class SkiServer {
         "LEFT JOIN LiftHeights ON skiers.LiftID = LiftHeights.liftId" +
         " GROUP BY SkierId HAVING SkierId = " + skierId;
 
-    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
-    String USERNAME = "root";
-    String PASSWORD = "password";
+//    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
+//    String USERNAME = "root";
+//    String PASSWORD = "password";
 
     Connection conn = null;
-    Statement stmt = null;
+    PreparedStatement stmt = null;
     ResultSet rs = null;
     int totalVert = 0;
 
     try {
-      Class.forName("com.mysql.jdbc.Driver");
-      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-      stmt = conn.createStatement();
-      rs = stmt.executeQuery(query);
+//      Class.forName("com.mysql.jdbc.Driver");
+//      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+      conn = dataSource.getConnection();
+      stmt = conn.prepareStatement(query);
+      rs = stmt.executeQuery();
       while (rs.next()) {
         totalVert = rs.getInt(1);
       }

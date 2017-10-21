@@ -30,7 +30,7 @@ public class SkiClient {
     System.out.println("Client starting...time: " + System.currentTimeMillis() / 1000);
 
     // Commandline can specify number of threads; otherwise default is used
-    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : 100;
+    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : 700;
     System.out.println("Threads: " + numThreads);
     //final String postURL = "http://ec2-34-215-21-235.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
     final String postURL = "http://localhost:8080/rest/load";
@@ -40,7 +40,6 @@ public class SkiClient {
     // Read every record in the file containing a day of skier data
     DataReader reader = new DataReader();
     List<RFIDLiftData> dayOneData = reader.readData();
-    List<String> dayOneJsons = new ArrayList<>();
 
     // Send each record to the Server's POST method via a PostTask
     List<PostTask> postTasks = new ArrayList<>();
@@ -61,6 +60,7 @@ public class SkiClient {
 //    postTasks.add(new PostTask(dayOneJsons, postURL));
 
     for(List<RFIDLiftData> subList : Lists.partition(dayOneData, TASK_LIST_SIZE)) {
+      List<String> dayOneJsons = new ArrayList<>();
       for(RFIDLiftData liftdata : subList) {
         String json = gson.toJson(liftdata);
         dayOneJsons.add(json);
