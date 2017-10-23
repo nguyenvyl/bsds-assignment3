@@ -5,11 +5,11 @@ import com.google.gson.Gson;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -25,6 +25,7 @@ import bsdsass2testdata.RFIDLiftData;
 public class SkiServer {
 
   private static BasicDataSource dataSource = getDataSource();
+  private static Map<Integer, Integer> liftToHeight = loadMap();
 
   private static BasicDataSource getDataSource() {
     if (dataSource == null) {
@@ -35,11 +36,28 @@ public class SkiServer {
       ds.setDriverClassName("com.mysql.jdbc.Driver");
       ds.setInitialSize(10);
       ds.setMaxTotal(100);
-//      ds.setMinIdle(5);
-//      ds.setMaxIdle(10);
       dataSource = ds;
     }
     return dataSource;
+  }
+
+  private static Map<Integer, Integer> loadMap() {
+
+    Map<Integer, Integer> map = new HashMap<>();
+    String query = "SELECT * FROM LiftHeights";
+
+    try {
+      Connection conn = dataSource.getConnection();
+      PreparedStatement prepStatement = conn.prepareStatement(query);
+      ResultSet rs = prepStatement.executeQuery();
+      while(rs.next()){
+        map.put(rs.getInt(1), rs.getInt(2));
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    return map;
   }
 
   //Method handling HTTP GET requests.
@@ -54,18 +72,12 @@ public class SkiServer {
         "LEFT JOIN LiftHeights ON skiers.LiftID = LiftHeights.liftId" +
         " GROUP BY SkierId HAVING SkierId = " + skierId;
 
-//    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
-//    String USERNAME = "root";
-//    String PASSWORD = "password";
-
     Connection conn = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
     int totalVert = 0;
 
     try {
-//      Class.forName("com.mysql.jdbc.Driver");
-//      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
       conn = dataSource.getConnection();
       stmt = conn.prepareStatement(query);
       rs = stmt.executeQuery();
@@ -97,10 +109,6 @@ public class SkiServer {
   @Consumes(MediaType.APPLICATION_JSON)
   public int postData(String json) {
 
-//    String URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
-//    String USERNAME = "root";
-//    String PASSWORD = "password";
-
     Gson gson = new Gson();
     RFIDLiftData data = gson.fromJson(json, RFIDLiftData.class);
 
@@ -111,20 +119,24 @@ public class SkiServer {
         + data.getLiftID() + ","
         + data.getTime() + ");";
 
+    String query2 = "INSERT INTO SkierStats (SkierId, DayNum, NumLifts, TotalVert) " +
+        "VALUES(" + data.getSkierID() + "," + data.getDayNum() + "," + 1 + "," +
+        liftToHeight.get(data.getLiftID()) + ") ON DUPLICATE KEY UPDATE NumLifts=NumLifts + 1, " +
+        "TotalVert = TotalVert + " + liftToHeight.get(data.getLiftID()) + ";";
+
     Connection conn = null;
-    //Statement stmt = null;
     PreparedStatement prepStatement = null;
+    PreparedStatement prepStatement2 = null;
 
     Integer rs;
 
     try {
-//      Class.forName("com.mysql.jdbc.Driver");
-//      conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
       conn = dataSource.getConnection();
       prepStatement = conn.prepareStatement(query);
+      prepStatement2 = conn.prepareStatement(query2);
       rs = prepStatement.executeUpdate();
-      //stmt = conn.createStatement();
-      //rs = stmt.executeUpdate(query);
+      prepStatement2.executeUpdate();
       return rs;
     } catch (SQLException e) {
       e.printStackTrace();
@@ -132,6 +144,8 @@ public class SkiServer {
       try {
         if (prepStatement != null)
           prepStatement.close();
+        if(prepStatement2 != null)
+          prepStatement2.close();
         if (conn != null)
           conn.close();
       } catch (Exception e) {

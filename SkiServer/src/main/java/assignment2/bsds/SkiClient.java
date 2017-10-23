@@ -32,8 +32,8 @@ public class SkiClient {
     // Commandline can specify number of threads; otherwise default is used
     int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : 700;
     System.out.println("Threads: " + numThreads);
-    //final String postURL = "http://ec2-34-215-21-235.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
-    final String postURL = "http://localhost:8080/rest/load";
+    final String postURL = "http://ec2-34-216-11-55.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
+    //final String postURL = "http://localhost:8080/rest/load";
 
     ExecutorService exec = Executors.newFixedThreadPool(numThreads);
 
