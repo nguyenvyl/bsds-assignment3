@@ -9,6 +9,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,20 +28,15 @@ public class LatencyChart {
 
   public void generateChart(String title) {
 
-    XYSeries latencies = new XYSeries("Average Latency");
+    XYSeries coordinates = new XYSeries("Average Latency");
 
-    Map<Integer, List<Integer>> mapping = null; // TODO: intellij complained about not being initialized
-
-    // iterate through map keys, calculate average latency for each key
-    // add key, average latency to series
-    for (TaskResult task : tasks) {
-      mapping = task.getLatencyMap();
-      for (Integer timeBucket : mapping.keySet())
-        latencies.add(timeBucket.doubleValue(), average(mapping.get(timeBucket)));
+    Map<Integer, List<Integer>> mapping = combineLatencyMappings();
+    for(Integer time : mapping.keySet()){
+      coordinates.add(time, Double.valueOf(average(mapping.get(time))));
     }
 
     XYSeriesCollection dataset = new XYSeriesCollection();
-    dataset.addSeries(latencies);
+    dataset.addSeries(coordinates);
 
     JFreeChart chart = ChartFactory.createXYLineChart("Average Latencies over Time",
         "Timestamp",
@@ -56,6 +53,27 @@ public class LatencyChart {
     } catch (IOException e) {
       System.err.println("Error in chart generation " + e);
     }
+  }
+
+  private Map<Integer,List<Integer>> combineLatencyMappings() {
+    Map<Integer, List<Integer>> bucketsToLatencies = new HashMap<>();
+
+    // iterate through map keys, add all latencies to corresponding bucket
+    for (TaskResult task : tasks) {
+      Map<Integer, List<Integer>> taskMap = task.getLatencyMap(); // time, list<latency>
+      for (Integer timeBucket : taskMap.keySet()){
+        List<Integer> l = taskMap.get(timeBucket);
+        if(bucketsToLatencies.containsKey(timeBucket)){
+          List<Integer> newList = bucketsToLatencies.get(timeBucket);
+          newList.addAll(l);
+          bucketsToLatencies.put(timeBucket, newList);
+        }
+        else {
+          bucketsToLatencies.put(timeBucket, l);
+        }
+      }
+    }
+    return bucketsToLatencies;
   }
 
   private double average(List<Integer> input) {

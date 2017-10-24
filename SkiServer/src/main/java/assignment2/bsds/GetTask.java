@@ -35,7 +35,8 @@ public class GetTask implements Callable<TaskResult> {
       Date timestamp = new Timestamp(calendar.getTime().getTime()); // in milliseconds
       timeBucket = timestamp.getTime() / 1000; // divide by 1000 to get one-second time bucket
     } catch (Exception e) {
-      System.err.println("Problem making GET request");
+      //System.err.println("Problem making GET request");
+      e.printStackTrace();
     }
     long end = System.currentTimeMillis();
     result.incrementRequest();

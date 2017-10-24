@@ -32,7 +32,8 @@ public class StatGenerator {
   }
 
   public int latencyPercentile(int percentile) {
-    int index = new Double( Math.ceil(percentile * numSuccesses / 100)).intValue() - 1;
+    Double idx = Math.ceil(percentile * numSuccesses / 100) - 1;
+    int index = idx.intValue();
     List<Integer> latencies = getLatencies();
     Collections.sort(latencies);
     return latencies.get(index);

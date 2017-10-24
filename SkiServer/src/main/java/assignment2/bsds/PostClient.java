@@ -2,7 +2,6 @@ package assignment2.bsds;
 
 import com.google.gson.Gson;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -10,10 +9,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
 
 import bsdsass2testdata.RFIDLiftData;
 import jersey.repackaged.com.google.common.collect.Lists;
@@ -24,13 +19,13 @@ import jersey.repackaged.com.google.common.collect.Lists;
 public class PostClient {
 
   public static final int TASK_LIST_SIZE = 100;
-  public static final int THREADS = 500;
+  public static final int NUM_THREADS = 500;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
     System.out.println("Client starting...time: " + System.currentTimeMillis() / 1000);
 
-    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : THREADS;
+    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : NUM_THREADS;
     System.out.println("Threads: " + numThreads);
 
     final String postURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
@@ -46,19 +41,6 @@ public class PostClient {
     List<PostTask> postTasks = new ArrayList<>();
 
     Gson gson = new Gson();
-
-//    for (int i = 0; i < 100; i++) {
-//      String json = gson.toJson(dayOneData.subList(i, i+1).get(0));
-//      dayOneJsons.add(json);
-//    }
-//    postTasks.add(new PostTask(dayOneJsons, postTarget));
-
-//      for(RFIDLiftData liftdata : dayOneData.subList(0, 10000)) {
-//        String json = gson.toJson(liftdata);
-//        dayOneJsons.add(json);
-//      }
-//
-//    postTasks.add(new PostTask(dayOneJsons, postURL));
 
     for(List<RFIDLiftData> subList : Lists.partition(dayOneData, TASK_LIST_SIZE)) {
       List<String> dayOneJsons = new ArrayList<>();
