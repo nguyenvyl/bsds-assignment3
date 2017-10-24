@@ -18,31 +18,23 @@ import javax.ws.rs.core.Response;
  */
 public class PostTask implements Callable<TaskResult> {
 
-  //private List<RFIDLiftData> dataList;
   private List<String> jsonList;
   private WebTarget webTarget;
   private TaskResult result;
   private Client client;
-  //private String url;
 
-  public PostTask(/*List<RFIDLiftData> dataList*/ List<String> jsonList, String url) {
-    //this.dataList = dataList;
+  public PostTask(List<String> jsonList, String url) {
     this.client = ClientBuilder.newClient();
     this.webTarget = client.target(url);
     this.jsonList = jsonList;
     this.result = new TaskResult();
-    //this.url = url;
   }
 
-//  private void makePostRequest(RFIDLiftData data) {
   private void makePostRequest(String json) {
 
     Response response = null;
     long start = System.currentTimeMillis();
     Long timeBucket = null;
-
-//    Gson gson = new Gson();
-//    String json = gson.toJson(data)
 
     try {
       response = webTarget.request().post(Entity.json(json));
@@ -52,7 +44,8 @@ public class PostTask implements Callable<TaskResult> {
       timeBucket = timestamp.getTime() / 1000; // divide by 1000 to get one-second time bucket
     }
     catch (Exception e) {
-      System.err.println("Problem making Post request");
+      //System.err.println("Problem making Post request");
+      e.printStackTrace();
     }
     long end = System.currentTimeMillis();
     result.incrementRequest();
@@ -68,9 +61,6 @@ public class PostTask implements Callable<TaskResult> {
   @Override
   public TaskResult call() throws Exception {
 
-//    for(RFIDLiftData data : dataList){
-//      makePostRequest(data);
-//    }
     for(String json : jsonList){
       makePostRequest(json);
     }

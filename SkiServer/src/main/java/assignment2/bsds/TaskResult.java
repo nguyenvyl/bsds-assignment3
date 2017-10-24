@@ -13,7 +13,6 @@ public class TaskResult {
   private int requestCount;
   private int successCount;
   private List<Integer> latencies;
-  // TODO: Map timestamp to latency
   private Map<Integer, List<Integer>> timeToLatencies;
 
   public TaskResult() {

@@ -24,18 +24,24 @@ import bsdsass2testdata.RFIDLiftData;
 @Path("/")
 public class SkiServer {
 
+  public static final String RDS_URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
+  public static final String USERNAME = "root";
+  public static final String PASSWORD = "password";
+  public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+  public static final int RDS_MAX_CONNECTIONS = 300;
+
   private static BasicDataSource dataSource = getDataSource();
   private static Map<Integer, Integer> liftToHeight = loadMap();
 
   private static BasicDataSource getDataSource() {
     if (dataSource == null) {
       BasicDataSource ds = new BasicDataSource();
-      ds.setUrl("jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication");
-      ds.setUsername("root");
-      ds.setPassword("password");
-      ds.setDriverClassName("com.mysql.jdbc.Driver");
-      ds.setInitialSize(10);
-      ds.setMaxTotal(100);
+      ds.setUrl(RDS_URL);
+      ds.setUsername(USERNAME);
+      ds.setPassword(PASSWORD);
+      ds.setDriverClassName(JDBC_DRIVER);
+      ds.setInitialSize(100);
+      ds.setMaxTotal(RDS_MAX_CONNECTIONS);
       dataSource = ds;
     }
     return dataSource;
@@ -56,35 +62,33 @@ public class SkiServer {
     } catch (SQLException e) {
       e.printStackTrace();
     }
-
     return map;
   }
 
-  //Method handling HTTP GET requests.
+
   @GET
   @Path("myvert/{skierId}/{dayNum}")
-  @Produces(MediaType.TEXT_PLAIN)
-  public int getData(@PathParam("skierId") int skierId,
+  @Produces(MediaType.APPLICATION_JSON)
+  public String getData(@PathParam("skierId") int skierId,
                         @PathParam("dayNum") int dayNum) {
 
-    String query = "SELECT COUNT(skier.LiftID) as Lift_Rides, SUM(height) as TOTAL_VERTICAL " +
-        "FROM (SELECT SkierId, LiftID FROM SkierData WHERE Day = " + dayNum + ") skiers " +
-        "LEFT JOIN LiftHeights ON skiers.LiftID = LiftHeights.liftId" +
-        " GROUP BY SkierId HAVING SkierId = " + skierId;
+    String query = "SELECT NumLifts, TotalVert FROM SkierStats WHERE(SkierId=" + skierId +
+        " AND DayNum=" + dayNum + ");";
 
     Connection conn = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
+    int numLifts = 0;
     int totalVert = 0;
 
     try {
       conn = dataSource.getConnection();
       stmt = conn.prepareStatement(query);
       rs = stmt.executeQuery();
-      while (rs.next()) {
-        totalVert = rs.getInt(1);
+      while(rs.next()){
+        numLifts=rs.getInt(1);
+        totalVert=rs.getInt(2);
       }
-      return totalVert;
     } catch (SQLException e) {
       e.printStackTrace();
     } finally {
@@ -99,7 +103,10 @@ public class SkiServer {
         e.printStackTrace();
       }
 
-      return totalVert;
+      Gson gson = new Gson();
+      SkierData data = new SkierData(numLifts, totalVert);
+      String json = gson.toJson(data);
+      return json;
     }
   }
 
@@ -128,10 +135,9 @@ public class SkiServer {
     PreparedStatement prepStatement = null;
     PreparedStatement prepStatement2 = null;
 
-    Integer rs;
+    Integer rs = 0;
 
     try {
-
       conn = dataSource.getConnection();
       prepStatement = conn.prepareStatement(query);
       prepStatement2 = conn.prepareStatement(query2);
@@ -152,7 +158,8 @@ public class SkiServer {
         e.printStackTrace();
       }
 
-      return 0;
+      return rs;
     }
   }
+
 }

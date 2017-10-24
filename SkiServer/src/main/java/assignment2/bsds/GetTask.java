@@ -33,7 +33,7 @@ public class GetTask implements Callable<TaskResult> {
       response.close();
       Calendar calendar = Calendar.getInstance();
       Date timestamp = new Timestamp(calendar.getTime().getTime()); // in milliseconds
-      timeBucket = timestamp.getTime() / 100; // divide by 1000 to get one-second time bucket
+      timeBucket = timestamp.getTime() / 1000; // divide by 1000 to get one-second time bucket
     } catch (Exception e) {
       System.err.println("Problem making GET request");
     }
@@ -50,9 +50,7 @@ public class GetTask implements Callable<TaskResult> {
 
   @Override
   public TaskResult call() throws Exception {
-
     makeGETRequest();
-
     return this.result;
   }
 }

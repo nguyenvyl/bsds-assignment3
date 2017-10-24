@@ -18,25 +18,27 @@ import javax.ws.rs.client.WebTarget;
  */
 public class GetClient {
 
-  public static final int N_THREADS = 100;
+  public static final int NUM_THREADS = 100;
+  public static final int NUM_SKIERS = 40000;
+  public static final int MS_PER_SEC = 1000;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-    System.out.println("Client starting...time: " + System.currentTimeMillis() / 1000);
+    System.out.println("Client starting...time: " + System.currentTimeMillis() / MS_PER_SEC);
 
-    final String baseURL = "http://localhost:8080/rest/myvert/";
+    final String baseURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/myvert/";
 
     Client client = ClientBuilder.newClient();
 
-    ExecutorService exec = Executors.newFixedThreadPool(N_THREADS);
+    ExecutorService exec = Executors.newFixedThreadPool(NUM_THREADS);
 
     // Send each record to the Server's POST method via a PostTask
     List<GetTask> getTasks = new ArrayList<>();
 
-    for(int skierId = 0; skierId < 40000; skierId++) {
+    for(int skierId = 1; skierId < NUM_SKIERS + 1; skierId++) {
       String getUrl = baseURL + skierId + "/1"; // for now, we only have day 1
-      WebTarget postTarget = client.target(getUrl);
-      getTasks.add(new GetTask(postTarget));
+      WebTarget getTarget = client.target(getUrl);
+      getTasks.add(new GetTask(getTarget));
     }
 
     // Execute all tasks
@@ -56,15 +58,14 @@ public class GetClient {
       results.add(tr.get());
     StatGenerator stats = new StatGenerator(results);
     LatencyChart chart = new LatencyChart(results);
-    chart.generateChart();
+    chart.generateChart("Part5");
 
     System.out.println("Total number of requests sent: " + stats.getNumRequests());
     System.out.println("Total number of successful responses: " + stats.getNumSuccesses());
-    System.out.println("Test Wall time: " + (endTime - startTime) / 1000 + " seconds");
+    System.out.println("Test Wall time: " + (endTime - startTime) / MS_PER_SEC + " seconds");
 
     System.out.println("Mean latency: " + stats.mean() + " milliseconds");
     System.out.println("Median latency: " + stats.median() + " milliseconds");
-    System.out.println("100th percentile latency: " + stats.latencyPercentile(100) + " milliseconds");
     System.out.println("99th percentile latency: " + stats.latencyPercentile(99) + " milliseconds");
     System.out.println("95th percentile latency: " + stats.latencyPercentile(95) + " milliseconds");
 

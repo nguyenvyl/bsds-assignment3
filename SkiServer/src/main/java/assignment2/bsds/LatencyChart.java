@@ -24,8 +24,7 @@ public class LatencyChart {
     this.tasks = tasks;
   }
 
-  // TODO: XYSeries for mean latency in a given 1-second time bucket
-  public void generateChart() {
+  public void generateChart(String title) {
 
     XYSeries latencies = new XYSeries("Average Latency");
 
@@ -52,7 +51,7 @@ public class LatencyChart {
         false);
 
     try {
-      String chartPath = "/Users/irenakushner/Documents/Northeastern/CS 6650/Assignment 2/testChart.JPEG";
+      String chartPath = "/Users/irenakushner/Documents/Northeastern/CS 6650/Assignment 2/" + title + ".JPEG";
       ChartUtilities.saveChartAsJPEG(new File(chartPath), chart, 500, 300);
     } catch (IOException e) {
       System.err.println("Error in chart generation " + e);
@@ -64,7 +63,7 @@ public class LatencyChart {
     for(Integer i : input) {
       sum += i;
     }
-    return sum /input.size();
+    return sum / input.size();
   }
 
 }

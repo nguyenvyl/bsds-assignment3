@@ -27,15 +27,36 @@
       <file leaf-file-name="SkiServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+            <state relative-caret-position="47">
+              <caret line="57" column="50" lean-forward="true" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1508736183000" expanded="true" signature="1262:1287" ph="SELECT * FRO... LiftHeights" />
-                <marker date="1508736183000" expanded="true" signature="1890:2174" ph="SELECT COUNT... SkierId" />
-                <marker date="1508736183000" expanded="true" signature="1981:2031" ph="SELECT Skier... SkierData" />
-                <marker date="1508736183000" expanded="true" signature="3069:3306" ph="INSERT INTO SkierData... " />
-                <marker date="1508736183000" expanded="true" signature="3332:3611" ph="INSERT INTO SkierStats... " />
+                <marker date="1508814122000" expanded="true" signature="1537:1562" ph="SELECT * FRO... LiftHeights" />
+                <marker date="1508814122000" expanded="true" signature="2135:2176" ph="SELECT NumLi... SkierStat" />
+                <marker date="1508814122000" expanded="true" signature="2135:2192" ph="SELECT NumLi... SkierStats" />
+                <marker date="1508814122000" expanded="true" signature="2135:2227" ph="SELECT NumLi... SkierStats" />
+                <marker date="1508814122000" expanded="true" signature="2135:2242" ph="SELECT NumLi... SkierStats" />
+                <marker date="1508814122000" expanded="true" signature="3276:3513" ph="INSERT INTO SkierData... " />
+                <marker date="1508814122000" expanded="true" signature="3539:3818" ph="INSERT INTO SkierStats... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SkierData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkierData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+              <folding>
+                <element signature="e#295#296#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#397#398#0" expanded="true" />
+                <element signature="e#428#429#0" expanded="true" />
+                <element signature="e#454#455#0" expanded="true" />
+                <element signature="e#499#500#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,53 +65,9 @@
       <file leaf-file-name="GetTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="96">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="7" lean-forward="false" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SkiClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -98,8 +75,63 @@
       <file leaf-file-name="PostTask.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="49" column="49" lean-forward="false" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+            <state relative-caret-position="103">
+              <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="65" column="44" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/StatGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <element signature="e#1129#1130#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LatencyChart.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/LatencyChart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="50" selection-end-column="13" />
+              <folding>
+                <element signature="e#554#555#0" expanded="true" />
+                <element signature="e#582#583#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GetClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="64" column="9" lean-forward="false" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReadWriteClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/ReadWriteClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -108,55 +140,11 @@
       <file leaf-file-name="TaskResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/TaskResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+            <state relative-caret-position="457">
+              <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#622#623#0" expanded="false" />
-                <element signature="e#646#647#0" expanded="false" />
-                <element signature="e#695#696#0" expanded="false" />
-                <element signature="e#719#720#0" expanded="false" />
-                <element signature="e#770#771#0" expanded="false" />
-                <element signature="e#799#800#0" expanded="false" />
-                <element signature="e#1254#1255#0" expanded="false" />
-                <element signature="e#1283#1284#0" expanded="false" />
-                <element signature="e#1330#1331#0" expanded="false" />
-                <element signature="e#1359#1360#0" expanded="false" />
-                <element signature="e#1413#1414#0" expanded="false" />
-                <element signature="e#1439#1440#0" expanded="false" />
-                <element signature="e#1495#1496#0" expanded="false" />
-                <element signature="e#1527#1528#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RFIDLiftData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bsdsass2testdata/RFIDLiftData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-              <folding>
-                <element signature="e#576#577#0" expanded="false" />
-                <element signature="e#601#602#0" expanded="false" />
-                <element signature="e#644#645#0" expanded="false" />
-                <element signature="e#678#679#0" expanded="false" />
-                <element signature="e#706#707#0" expanded="false" />
-                <element signature="e#729#730#0" expanded="false" />
-                <element signature="e#768#769#0" expanded="false" />
-                <element signature="e#798#799#0" expanded="false" />
-                <element signature="e#827#828#0" expanded="false" />
-                <element signature="e#851#852#0" expanded="false" />
-                <element signature="e#892#893#0" expanded="false" />
-                <element signature="e#924#925#0" expanded="false" />
-                <element signature="e#952#953#0" expanded="false" />
-                <element signature="e#975#976#0" expanded="false" />
-                <element signature="e#1014#1015#0" expanded="false" />
-                <element signature="e#1044#1045#0" expanded="false" />
-                <element signature="e#1070#1071#0" expanded="false" />
-                <element signature="e#1091#1092#0" expanded="false" />
-                <element signature="e#1126#1127#0" expanded="false" />
-                <element signature="e#1152#1153#0" expanded="false" />
+                <element signature="e#1377#1378#0" expanded="true" />
+                <element signature="e#1403#1404#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -191,17 +179,21 @@
         <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/Task.java" />
         <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/RFIDLiftData.java" />
         <option value="$PROJECT_DIR$/src/main/java/bsdsass2testdata/RFIDLiftData.java" />
-        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/DataReader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/TaskResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/LatencyChart.java" />
         <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/DBTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/StatGenerator.java" />
         <option value="$PROJECT_DIR$/out/artifacts/SkiServer_war_exploded/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/GetTask.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/GetClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/GetTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/ReadWrite.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/TaskResult.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/LatencyChart.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/DataReader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/ReadWriteClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/GetClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/SkierData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/PostClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiServer.java" />
       </list>
     </option>
@@ -226,6 +218,20 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="SkiServer" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1261" />
@@ -246,7 +252,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -394,27 +399,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SkiServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SkiServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="artifacts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -430,11 +418,14 @@
     <property name="Repository.Attach.Sources" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web/WEB-INF/lib" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/WEB-INF" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="assignment2.bsds" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/WEB-INF/lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -449,55 +440,15 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.SkiClient">
-    <configuration default="false" name="DataReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="bsdsass2testdata.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="assignment2.bsds.DataReader" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SkiServer" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="SkiClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.GetClient">
+    <configuration default="false" name="PostClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="assignment2.bsds.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="assignment2.bsds.SkiClient" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="SkiServer" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="LatencyChart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="assignment2.bsds.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="assignment2.bsds.LatencyChart" />
+      <option name="MAIN_CLASS_NAME" value="assignment2.bsds.PostClient" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -538,6 +489,46 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="assignment2.bsds.GetClient" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="SkiServer" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TaskResult" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="assignment2.bsds.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="assignment2.bsds.TaskResult" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="SkiServer" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ReadWriteClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="assignment2.bsds.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="assignment2.bsds.ReadWriteClient" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1021,19 +1012,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 8.5.20" />
-      <item index="1" class="java.lang.String" itemvalue="Application.DataReader" />
-      <item index="2" class="java.lang.String" itemvalue="Application.SkiClient" />
-      <item index="3" class="java.lang.String" itemvalue="Application.LatencyChart" />
-      <item index="4" class="java.lang.String" itemvalue="Application.SkiServer" />
-      <item index="5" class="java.lang.String" itemvalue="Application.GetClient" />
+      <item index="1" class="java.lang.String" itemvalue="Application.PostClient" />
+      <item index="2" class="java.lang.String" itemvalue="Application.SkiServer" />
+      <item index="3" class="java.lang.String" itemvalue="Application.GetClient" />
+      <item index="4" class="java.lang.String" itemvalue="Application.TaskResult" />
+      <item index="5" class="java.lang.String" itemvalue="Application.ReadWriteClient" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.SkiClient" />
-        <item index="1" class="java.lang.String" itemvalue="Application.GetClient" />
-        <item index="2" class="java.lang.String" itemvalue="Application.SkiServer" />
-        <item index="3" class="java.lang.String" itemvalue="Application.LatencyChart" />
-        <item index="4" class="java.lang.String" itemvalue="Application.DataReader" />
+        <item index="0" class="java.lang.String" itemvalue="Application.GetClient" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ReadWriteClient" />
+        <item index="2" class="java.lang.String" itemvalue="Application.PostClient" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TaskResult" />
+        <item index="4" class="java.lang.String" itemvalue="Application.SkiServer" />
       </list>
     </recent_temporary>
   </component>
@@ -1069,12 +1060,13 @@
       <workItem from="1508624548345" duration="285000" />
       <workItem from="1508633535808" duration="1750000" />
       <workItem from="1508706106271" duration="23000" />
-      <workItem from="1508730268029" duration="4247000" />
+      <workItem from="1508730268029" duration="4468000" />
+      <workItem from="1508789910429" duration="16331000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129924000" />
+    <option name="totallyTimeSpent" value="146476000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1261" height="738" extended-state="0" />
@@ -1084,7 +1076,7 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297785" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1099,11 +1091,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3516129" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41451612" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23543888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23872027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1127,31 +1119,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java</url>
-          <line>34</line>
-          <properties />
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java</url>
-          <line>39</line>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java</url>
-          <line>48</line>
+          <line>40</line>
           <properties />
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java</url>
-          <line>51</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="44" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1160,59 +1146,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/bsdsass2testdata/RFIDLiftData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-            <element signature="e#768#769#0" expanded="false" />
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#851#852#0" expanded="false" />
-            <element signature="e#892#893#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="false" />
-            <element signature="e#975#976#0" expanded="false" />
-            <element signature="e#1014#1015#0" expanded="false" />
-            <element signature="e#1044#1045#0" expanded="false" />
-            <element signature="e#1070#1071#0" expanded="false" />
-            <element signature="e#1091#1092#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/TaskResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#622#623#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#719#720#0" expanded="false" />
-            <element signature="e#770#771#0" expanded="false" />
-            <element signature="e#799#800#0" expanded="false" />
-            <element signature="e#1254#1255#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-            <element signature="e#1413#1414#0" expanded="false" />
-            <element signature="e#1439#1440#0" expanded="false" />
-            <element signature="e#1495#1496#0" expanded="false" />
-            <element signature="e#1527#1528#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1220,7 +1153,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="39" column="44" lean-forward="true" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
@@ -1242,16 +1175,18 @@
           <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1508736183000" expanded="true" signature="1262:1287" ph="SELECT * FRO... LiftHeights" />
-            <marker date="1508736183000" expanded="true" signature="1890:2174" ph="SELECT COUNT... SkierId" />
-            <marker date="1508736183000" expanded="true" signature="1981:2031" ph="SELECT Skier... SkierData" />
-            <marker date="1508736183000" expanded="true" signature="3069:3306" ph="INSERT INTO SkierData... " />
-            <marker date="1508736183000" expanded="true" signature="3332:3611" ph="INSERT INTO SkierStats... " />
+            <marker date="1508814122000" expanded="true" signature="1537:1562" ph="SELECT * FRO... LiftHeights" />
+            <marker date="1508814122000" expanded="true" signature="2135:2176" ph="SELECT NumLi... SkierStat" />
+            <marker date="1508814122000" expanded="true" signature="2135:2192" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2227" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2242" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="3276:3513" ph="INSERT INTO SkierData... " />
+            <marker date="1508814122000" expanded="true" signature="3539:3818" ph="INSERT INTO SkierStats... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="40" column="49" lean-forward="false" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
@@ -1280,21 +1215,8 @@
         <state relative-caret-position="570">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#622#623#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#719#720#0" expanded="false" />
-            <element signature="e#770#771#0" expanded="false" />
-            <element signature="e#799#800#0" expanded="false" />
-            <element signature="e#1254#1255#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-            <element signature="e#1413#1414#0" expanded="false" />
-            <element signature="e#1439#1440#0" expanded="false" />
-            <element signature="e#1495#1496#0" expanded="false" />
-            <element signature="e#1527#1528#0" expanded="false" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1317,28 +1239,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding>
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-            <element signature="e#768#769#0" expanded="false" />
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#851#852#0" expanded="false" />
-            <element signature="e#892#893#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="false" />
-            <element signature="e#975#976#0" expanded="false" />
-            <element signature="e#1014#1015#0" expanded="false" />
-            <element signature="e#1044#1045#0" expanded="false" />
-            <element signature="e#1070#1071#0" expanded="false" />
-            <element signature="e#1091#1092#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1356,16 +1257,18 @@
           <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1508736183000" expanded="true" signature="1262:1287" ph="SELECT * FRO... LiftHeights" />
-            <marker date="1508736183000" expanded="true" signature="1890:2174" ph="SELECT COUNT... SkierId" />
-            <marker date="1508736183000" expanded="true" signature="1981:2031" ph="SELECT Skier... SkierData" />
-            <marker date="1508736183000" expanded="true" signature="3069:3306" ph="INSERT INTO SkierData... " />
-            <marker date="1508736183000" expanded="true" signature="3332:3611" ph="INSERT INTO SkierStats... " />
+            <marker date="1508814122000" expanded="true" signature="1537:1562" ph="SELECT * FRO... LiftHeights" />
+            <marker date="1508814122000" expanded="true" signature="2135:2176" ph="SELECT NumLi... SkierStat" />
+            <marker date="1508814122000" expanded="true" signature="2135:2192" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2227" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2242" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="3276:3513" ph="INSERT INTO SkierData... " />
+            <marker date="1508814122000" expanded="true" signature="3539:3818" ph="INSERT INTO SkierStats... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="40" column="49" lean-forward="true" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
@@ -1385,28 +1288,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-            <element signature="e#768#769#0" expanded="false" />
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#851#852#0" expanded="false" />
-            <element signature="e#892#893#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="false" />
-            <element signature="e#975#976#0" expanded="false" />
-            <element signature="e#1014#1015#0" expanded="false" />
-            <element signature="e#1044#1045#0" expanded="false" />
-            <element signature="e#1070#1071#0" expanded="false" />
-            <element signature="e#1091#1092#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,21 +1297,8 @@
         <state relative-caret-position="570">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#622#623#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#719#720#0" expanded="false" />
-            <element signature="e#770#771#0" expanded="false" />
-            <element signature="e#799#800#0" expanded="false" />
-            <element signature="e#1254#1255#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-            <element signature="e#1413#1414#0" expanded="false" />
-            <element signature="e#1439#1440#0" expanded="false" />
-            <element signature="e#1495#1496#0" expanded="false" />
-            <element signature="e#1527#1528#0" expanded="false" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1491,11 +1360,13 @@
           <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1508736183000" expanded="true" signature="1262:1287" ph="SELECT * FRO... LiftHeights" />
-            <marker date="1508736183000" expanded="true" signature="1890:2174" ph="SELECT COUNT... SkierId" />
-            <marker date="1508736183000" expanded="true" signature="1981:2031" ph="SELECT Skier... SkierData" />
-            <marker date="1508736183000" expanded="true" signature="3069:3306" ph="INSERT INTO SkierData... " />
-            <marker date="1508736183000" expanded="true" signature="3332:3611" ph="INSERT INTO SkierStats... " />
+            <marker date="1508814122000" expanded="true" signature="1537:1562" ph="SELECT * FRO... LiftHeights" />
+            <marker date="1508814122000" expanded="true" signature="2135:2176" ph="SELECT NumLi... SkierStat" />
+            <marker date="1508814122000" expanded="true" signature="2135:2192" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2227" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2242" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="3276:3513" ph="INSERT INTO SkierData... " />
+            <marker date="1508814122000" expanded="true" signature="3539:3818" ph="INSERT INTO SkierStats... " />
           </folding>
         </state>
       </provider>
@@ -1523,13 +1394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/StatGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="34" column="70" lean-forward="false" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-client/2.23.2/jersey-client-2.23.2.jar!/org/glassfish/jersey/client/InboundJaxrsResponse.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -1551,20 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/LatencyChart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="48" column="33" lean-forward="false" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/DataReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/DBTest.java" />
     <entry file="jar://$PROJECT_DIR$/out/artifacts/SkiServer_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.44-bin.jar!/com/mysql/jdbc/SQLError.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -1577,62 +1427,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#576#577#0" expanded="false" />
-            <element signature="e#601#602#0" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#706#707#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-            <element signature="e#768#769#0" expanded="false" />
-            <element signature="e#798#799#0" expanded="false" />
-            <element signature="e#827#828#0" expanded="false" />
-            <element signature="e#851#852#0" expanded="false" />
-            <element signature="e#892#893#0" expanded="false" />
-            <element signature="e#924#925#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="false" />
-            <element signature="e#975#976#0" expanded="false" />
-            <element signature="e#1014#1015#0" expanded="false" />
-            <element signature="e#1044#1045#0" expanded="false" />
-            <element signature="e#1070#1071#0" expanded="false" />
-            <element signature="e#1091#1092#0" expanded="false" />
-            <element signature="e#1126#1127#0" expanded="false" />
-            <element signature="e#1152#1153#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/TaskResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="58" column="22" lean-forward="false" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#622#623#0" expanded="false" />
-            <element signature="e#646#647#0" expanded="false" />
-            <element signature="e#695#696#0" expanded="false" />
-            <element signature="e#719#720#0" expanded="false" />
-            <element signature="e#770#771#0" expanded="false" />
-            <element signature="e#799#800#0" expanded="false" />
-            <element signature="e#1254#1255#0" expanded="false" />
-            <element signature="e#1283#1284#0" expanded="false" />
-            <element signature="e#1330#1331#0" expanded="false" />
-            <element signature="e#1359#1360#0" expanded="false" />
-            <element signature="e#1413#1414#0" expanded="false" />
-            <element signature="e#1439#1440#0" expanded="false" />
-            <element signature="e#1495#1496#0" expanded="false" />
-            <element signature="e#1527#1528#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1640,16 +1435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="20" column="39" lean-forward="false" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1669,33 +1454,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/DataReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="49" column="49" lean-forward="false" selection-start-line="49" selection-start-column="49" selection-end-line="49" selection-end-column="49" />
+        <state relative-caret-position="97">
+          <caret line="20" column="106" lean-forward="false" selection-start-line="20" selection-start-column="106" selection-end-line="20" selection-end-column="106" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/ReadWriteClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="15" column="28" lean-forward="false" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/StatGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#1129#1130#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/LatencyChart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="36" column="27" lean-forward="false" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/TaskResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+          <folding>
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1403#1404#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="64" column="9" lean-forward="false" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkierData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+          <folding>
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#397#398#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
+            <element signature="e#454#455#0" expanded="true" />
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/GetTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/PostClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="65" column="44" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/assignment2/bsds/SkiServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        <state relative-caret-position="47">
+          <caret line="57" column="50" lean-forward="true" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1508736183000" expanded="true" signature="1262:1287" ph="SELECT * FRO... LiftHeights" />
-            <marker date="1508736183000" expanded="true" signature="1890:2174" ph="SELECT COUNT... SkierId" />
-            <marker date="1508736183000" expanded="true" signature="1981:2031" ph="SELECT Skier... SkierData" />
-            <marker date="1508736183000" expanded="true" signature="3069:3306" ph="INSERT INTO SkierData... " />
-            <marker date="1508736183000" expanded="true" signature="3332:3611" ph="INSERT INTO SkierStats... " />
+            <marker date="1508814122000" expanded="true" signature="1537:1562" ph="SELECT * FRO... LiftHeights" />
+            <marker date="1508814122000" expanded="true" signature="2135:2176" ph="SELECT NumLi... SkierStat" />
+            <marker date="1508814122000" expanded="true" signature="2135:2192" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2227" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="2135:2242" ph="SELECT NumLi... SkierStats" />
+            <marker date="1508814122000" expanded="true" signature="3276:3513" ph="INSERT INTO SkierData... " />
+            <marker date="1508814122000" expanded="true" signature="3539:3818" ph="INSERT INTO SkierStats... " />
           </folding>
         </state>
       </provider>
@@ -1779,11 +1647,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>mysql-connector-java-5.1.44-bin</last-edited>
+          <last-edited>org.json</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.56512606" />
+                <option value="0.25374532" />
               </list>
             </option>
           </splitter-proportions>
