@@ -29,7 +29,6 @@ public class GetClient {
     final String baseURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/myvert/";
 
     Client client = ClientBuilder.newClient();
-
     ExecutorService exec = Executors.newFixedThreadPool(NUM_THREADS);
 
     // Send each record to the Server's POST method via a PostTask
@@ -60,14 +59,7 @@ public class GetClient {
     LatencyChart chart = new LatencyChart(results);
     chart.generateChart("Part5");
 
-    System.out.println("Total number of requests sent: " + stats.getNumRequests());
-    System.out.println("Total number of successful responses: " + stats.getNumSuccesses());
     System.out.println("Test Wall time: " + (endTime - startTime) / MS_PER_SEC + " seconds");
-
-    System.out.println("Mean latency: " + stats.mean() + " milliseconds");
-    System.out.println("Median latency: " + stats.median() + " milliseconds");
-    System.out.println("99th percentile latency: " + stats.latencyPercentile(99) + " milliseconds");
-    System.out.println("95th percentile latency: " + stats.latencyPercentile(95) + " milliseconds");
-
+    stats.printStats();
   }
 }

@@ -19,11 +19,12 @@ import jersey.repackaged.com.google.common.collect.Lists;
 public class PostClient {
 
   public static final int TASK_LIST_SIZE = 100;
-  public static final int NUM_THREADS = 500;
+  public static final int NUM_THREADS = 400;
+  public static final int MS_PER_SEC = 1000;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-    System.out.println("Client starting...time: " + System.currentTimeMillis() / 1000);
+    System.out.println("Client starting...time: " + System.currentTimeMillis() / MS_PER_SEC);
 
     int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : NUM_THREADS;
     System.out.println("Threads: " + numThreads);
@@ -42,9 +43,9 @@ public class PostClient {
 
     Gson gson = new Gson();
 
-    for(List<RFIDLiftData> subList : Lists.partition(dayOneData, TASK_LIST_SIZE)) {
+    for (List<RFIDLiftData> subList : Lists.partition(dayOneData.subList(0, 100000), TASK_LIST_SIZE)) {
       List<String> dayOneJsons = new ArrayList<>();
-      for(RFIDLiftData liftdata : subList) {
+      for (RFIDLiftData liftdata : subList) {
         String json = gson.toJson(liftdata);
         dayOneJsons.add(json);
       }
@@ -69,14 +70,15 @@ public class PostClient {
     LatencyChart chart = new LatencyChart(results);
     chart.generateChart("Part4");
 
-    System.out.println("Total number of requests sent: " + stats.getNumRequests());
-    System.out.println("Total number of successful responses: " + stats.getNumSuccesses());
-    System.out.println("Test Wall time: " + (endTime - startTime) / 1000 + " seconds");
-
-    System.out.println("Mean latency: " + stats.mean() + " milliseconds");
-    System.out.println("Median latency: " + stats.median() + " milliseconds");
-    System.out.println("99th percentile latency: " + stats.latencyPercentile(99) + " milliseconds");
-    System.out.println("95th percentile latency: " + stats.latencyPercentile(95) + " milliseconds");
+    System.out.println("Test Wall time: " + (endTime - startTime) / MS_PER_SEC + " seconds");
+    stats.printStats();
+//    System.out.println("Total number of requests sent: " + stats.getNumRequests());
+//    System.out.println("Total number of successful responses: " + stats.getNumSuccesses());
+//
+//    System.out.println("Mean latency: " + stats.mean() + " milliseconds");
+//    System.out.println("Median latency: " + stats.median() + " milliseconds");
+//    System.out.println("99th percentile latency: " + stats.latencyPercentile(99) + " milliseconds");
+//    System.out.println("95th percentile latency: " + stats.latencyPercentile(95) + " milliseconds");
 
   }
 }

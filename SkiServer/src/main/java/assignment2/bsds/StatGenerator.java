@@ -54,4 +54,14 @@ public class StatGenerator {
       allTimes.addAll(result.getLatencies());
     return allTimes;
   }
+
+  public void printStats() {
+    System.out.println("Total number of requests sent: " + getNumRequests());
+    System.out.println("Total number of successful responses: " + getNumSuccesses());
+
+    System.out.println("Mean latency: " + mean() + " milliseconds");
+    System.out.println("Median latency: " + median() + " milliseconds");
+    System.out.println("99th percentile latency: " + latencyPercentile(99) + " milliseconds");
+    System.out.println("95th percentile latency: " + latencyPercentile(95) + " milliseconds");
+  }
 }

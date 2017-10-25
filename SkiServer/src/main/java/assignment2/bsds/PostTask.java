@@ -44,7 +44,6 @@ public class PostTask implements Callable<TaskResult> {
       timeBucket = timestamp.getTime() / 1000; // divide by 1000 to get one-second time bucket
     }
     catch (Exception e) {
-      //System.err.println("Problem making Post request");
       e.printStackTrace();
     }
     long end = System.currentTimeMillis();

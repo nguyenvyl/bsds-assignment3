@@ -12,7 +12,7 @@ public class ReadWriteClient {
     GetClient getClient = new GetClient();
     PostClient postClient = new PostClient();
 
-    String[] noargs = new String[0];
+    String[] noargs = new String[1];
     postClient.main(noargs);
     getClient.main(noargs);
 
