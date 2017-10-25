@@ -18,13 +18,14 @@ import javax.ws.rs.client.WebTarget;
  */
 public class GetClient {
 
-  public static final int NUM_THREADS = 100;
+  public static final int NUM_THREADS = 200;
   public static final int NUM_SKIERS = 40000;
   public static final int MS_PER_SEC = 1000;
 
   public static void main(String[] args) throws ExecutionException, InterruptedException {
 
     System.out.println("Client starting...time: " + System.currentTimeMillis() / MS_PER_SEC);
+    int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : NUM_THREADS;
 
     final String baseURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/myvert/";
 

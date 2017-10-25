@@ -43,7 +43,7 @@ public class PostClient {
 
     Gson gson = new Gson();
 
-    for (List<RFIDLiftData> subList : Lists.partition(dayOneData.subList(0, 100000), TASK_LIST_SIZE)) {
+    for (List<RFIDLiftData> subList : Lists.partition(dayOneData.subList(0, 800000), TASK_LIST_SIZE)) {
       List<String> dayOneJsons = new ArrayList<>();
       for (RFIDLiftData liftdata : subList) {
         String json = gson.toJson(liftdata);
