@@ -29,8 +29,8 @@ public class PostClient {
     int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : NUM_THREADS;
     System.out.println("Threads: " + numThreads);
 
-    final String postURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
-    //final String postURL = "http://localhost:8080/rest/load";
+    //final String postURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
+    final String postURL = "http://localhost:8080/rest/load";
 
     ExecutorService exec = Executors.newFixedThreadPool(numThreads);
 
@@ -43,7 +43,7 @@ public class PostClient {
 
     Gson gson = new Gson();
 
-    for (List<RFIDLiftData> subList : Lists.partition(dayOneData.subList(0, 800000), TASK_LIST_SIZE)) {
+    for (List<RFIDLiftData> subList : Lists.partition(dayOneData.subList(0, 100000), TASK_LIST_SIZE)) {
       List<String> dayOneJsons = new ArrayList<>();
       for (RFIDLiftData liftdata : subList) {
         String json = gson.toJson(liftdata);
@@ -57,7 +57,7 @@ public class PostClient {
     long startTime = System.currentTimeMillis();
     List<Future<TaskResult>> futureResults = exec.invokeAll(postTasks);
     exec.shutdown();
-    exec.awaitTermination(Long.MAX_VALUE, TimeUnit.MILLISECONDS); // Blocks until all threads terminated
+    exec.awaitTermination(1800, TimeUnit.SECONDS); // Blocks until all threads terminated
 
     long endTime = System.currentTimeMillis();
     System.out.println("All threads complete... time: " + System.currentTimeMillis());
@@ -72,13 +72,6 @@ public class PostClient {
 
     System.out.println("Test Wall time: " + (endTime - startTime) / MS_PER_SEC + " seconds");
     stats.printStats();
-//    System.out.println("Total number of requests sent: " + stats.getNumRequests());
-//    System.out.println("Total number of successful responses: " + stats.getNumSuccesses());
-//
-//    System.out.println("Mean latency: " + stats.mean() + " milliseconds");
-//    System.out.println("Median latency: " + stats.median() + " milliseconds");
-//    System.out.println("99th percentile latency: " + stats.latencyPercentile(99) + " milliseconds");
-//    System.out.println("95th percentile latency: " + stats.latencyPercentile(95) + " milliseconds");
 
   }
 }

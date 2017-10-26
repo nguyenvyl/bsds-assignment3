@@ -28,7 +28,7 @@ public class SkiServer {
   public static final String USERNAME = "root";
   public static final String PASSWORD = "password";
   public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-  public static final int RDS_MAX_CONNECTIONS = 300;
+  public static final int RDS_MAX_CONNECTIONS = 100;
 
   private static BasicDataSource dataSource = getDataSource();
   private static Map<Integer, Integer> liftToHeight = loadMap();
@@ -40,7 +40,7 @@ public class SkiServer {
       ds.setUsername(USERNAME);
       ds.setPassword(PASSWORD);
       ds.setDriverClassName(JDBC_DRIVER);
-      ds.setInitialSize(100);
+      ds.setInitialSize(50);
       ds.setMaxTotal(RDS_MAX_CONNECTIONS);
       dataSource = ds;
     }
@@ -139,13 +139,14 @@ public class SkiServer {
 
     try {
       conn = dataSource.getConnection();
+      conn.setAutoCommit(true);
       prepStatement = conn.prepareStatement(query);
       prepStatement2 = conn.prepareStatement(query2);
       rs = prepStatement.executeUpdate();
       prepStatement2.executeUpdate();
       return rs;
     } catch (SQLException e) {
-      e.printStackTrace();
+      System.out.println(e.getErrorCode());
     } finally {
       try {
         if (prepStatement != null)
