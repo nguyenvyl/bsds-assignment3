@@ -27,7 +27,7 @@ public class GetClient {
     System.out.println("Client starting...time: " + System.currentTimeMillis() / MS_PER_SEC);
     int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : NUM_THREADS;
 
-    final String baseURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/myvert/";
+    final String baseURL = "http://bsdsdatabase-env-1.pk8kay72jp.us-west-2.elasticbeanstalk.com/myvert";
 
     Client client = ClientBuilder.newClient();
     ExecutorService exec = Executors.newFixedThreadPool(NUM_THREADS);

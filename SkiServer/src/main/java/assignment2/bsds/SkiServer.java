@@ -24,9 +24,10 @@ import bsdsass2testdata.RFIDLiftData;
 @Path("/")
 public class SkiServer {
 
-  public static final String RDS_URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
-  public static final String USERNAME = "root";
-  public static final String PASSWORD = "password";
+//  public static final String RDS_URL = "jdbc:mysql://skidb.c9gtnfpnhpvo.us-west-2.rds.amazonaws.com:3306/SkiApplication";
+  public static final String RDS_URL = "aaevg5ww0x1b7m.cdqh8w1txiil.us-west-2.rds.amazonaws.com";
+  public static final String USERNAME = "admin";
+  public static final String PASSWORD = "adminadmin";
   public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
   public static final int RDS_MAX_CONNECTIONS = 100;
 

@@ -4,8 +4,6 @@
 .metadata
 *.iml
 *.ipr
+.idea
 
-/.idea/workspace.xml
-/.idea/tasks.xml
-SkiServer/.idea/uiDesigner.xml
 

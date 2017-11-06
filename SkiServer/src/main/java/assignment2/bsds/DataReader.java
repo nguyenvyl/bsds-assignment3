@@ -17,7 +17,7 @@ public class DataReader {
 
     // System independent newline
     String newline = System.getProperty("line.separator");
-    String filePath = "/Users/irenakushner/Documents/Northeastern/CS 6650/Assignment 2/BSDSAssignment2Day1.ser";
+    String filePath = "C:\\Users\\BRF8\\IdeaProjects\\school\\BSDS_Assignment3\\SkiServer\\src\\rawfiles\\BSDSAssignment2Day1.ser";
     //String filePath = "/Users/irenakushner/Documents/Northeastern/CS 6650/Assignment 2/BSDSAssignment2Day2.ser";
 
     // file and stream for input

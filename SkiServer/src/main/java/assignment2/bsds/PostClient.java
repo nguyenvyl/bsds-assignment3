@@ -30,7 +30,7 @@ public class PostClient {
     System.out.println("Threads: " + numThreads);
 
     //final String postURL = "http://ec2-52-32-88-162.us-west-2.compute.amazonaws.com:8000/SkiServer_war/rest/load/";
-    final String postURL = "http://localhost:8080/rest/load";
+    final String postURL = "http://bsdsdatabase-env-1.pk8kay72jp.us-west-2.elasticbeanstalk.com/load";
 
     ExecutorService exec = Executors.newFixedThreadPool(numThreads);
 
