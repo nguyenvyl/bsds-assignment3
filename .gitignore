@@ -5,5 +5,5 @@
 *.iml
 *.ipr
 .idea
-
-
+SkiServer/target/*
+*.JPEG
