@@ -1,6 +1,9 @@
 package assignment2.bsds;
 
+import bsdsass2testdata.RFIDLiftData;
+import com.google.common.collect.Lists;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -10,7 +13,10 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.client.ClientProperties;
 
 /**
  * A task which can be passed to an Executor object
@@ -18,53 +24,61 @@ import javax.ws.rs.core.Response;
  */
 public class PostTask implements Callable<TaskResult> {
 
-  private List<String> jsonList;
-  private WebTarget webTarget;
-  private TaskResult result;
-  private Client client;
+    private List<RFIDLiftData> dataList;
+    private WebTarget webTarget;
+    private TaskResult result;
+    private Client client;
+    private static final int BATCH_SIZE = 50;
 
-  public PostTask(List<String> jsonList, String url) {
-    this.client = ClientBuilder.newClient();
-    this.webTarget = client.target(url);
-    this.jsonList = jsonList;
-    this.result = new TaskResult();
-  }
-
-  private void makePostRequest(String json) {
-
-    Response response = null;
-    long start = System.currentTimeMillis();
-    Long timeBucket = null;
-
-    try {
-      response = webTarget.request().post(Entity.json(json));
-      response.close();
-      Calendar calendar = Calendar.getInstance();
-      Date timestamp = new Timestamp(calendar.getTime().getTime()); // in milliseconds
-      timeBucket = timestamp.getTime() / 1000; // divide by 1000 to get one-second time bucket
-    }
-    catch (Exception e) {
-      e.printStackTrace();
-    }
-    long end = System.currentTimeMillis();
-    result.incrementRequest();
-
-    if(response != null && response.getStatus() == 200) {
-      result.incrementSuccess();
-      int latency = (int) (end - start);
-      result.addLatency(latency); // TODO: replace this with latency mapping
-      result.addLatencyMapping(timeBucket.intValue(), latency);
-    }
-  }
-
-  @Override
-  public TaskResult call() throws Exception {
-
-    for(String json : jsonList){
-      makePostRequest(json);
+    public PostTask(List<RFIDLiftData> dataList, String url) {
+        this.client = ClientBuilder.newClient();
+        client.property(ClientProperties.CONNECT_TIMEOUT, 60000);
+        client.property(ClientProperties.READ_TIMEOUT, 60000);
+        this.webTarget = client.target(url);
+        this.dataList = dataList;
+        this.result = new TaskResult();
     }
 
-    client.close();
-    return this.result;
-  }
+    private void makePostRequest(List<RFIDLiftData> data) {
+
+        Response response = null;
+        long start = System.currentTimeMillis();
+        Long timeBucket = null;
+
+        try {
+            response = webTarget.request().post(Entity.entity(data, MediaType.APPLICATION_JSON));
+            response.close();
+            Calendar calendar = Calendar.getInstance();
+            Date timestamp = new Timestamp(calendar.getTime().getTime()); // in milliseconds
+            timeBucket = timestamp.getTime() / 1000; // divide by 1000 to get one-second time bucket
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        long end = System.currentTimeMillis();
+        result.incrementRequest();
+
+        if(response != null && response.getStatus() == 200) {
+            result.incrementSuccess();
+            int latency = (int) (end - start);
+            result.addLatency(latency); // TODO: replace this with latency mapping
+            result.addLatencyMapping(timeBucket.intValue(), latency);
+        }
+    }
+
+    @Override
+    public TaskResult call() throws Exception {
+
+        for(List<RFIDLiftData> data : Lists.partition(this.dataList, BATCH_SIZE)){
+            makePostRequest(data);
+        }
+//        for(RFIDLiftData data : this.dataList){
+//            List<RFIDLiftData> singleData = new ArrayList<>();
+//            singleData.add(data);
+//            makePostRequest(singleData);
+//        }
+
+        client.close();
+        return this.result;
+    }
 }

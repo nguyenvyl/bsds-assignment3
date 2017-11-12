@@ -11,11 +11,9 @@ import java.util.concurrent.TimeUnit;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
+import org.glassfish.jersey.client.ClientProperties;
 
 
-/**
- * Created by irenakushner on 10/17/17.
- */
 public class GetClient {
 
   public static final int NUM_THREADS = 200;
@@ -27,9 +25,11 @@ public class GetClient {
     System.out.println("Client starting...time: " + System.currentTimeMillis() / MS_PER_SEC);
     int numThreads = args.length == 1 ? Integer.parseInt(args[0]) : NUM_THREADS;
 
-    final String baseURL = "http://bsdsdatabase-env-1.pk8kay72jp.us-west-2.elasticbeanstalk.com/myvert";
+    final String baseURL = "http://BsdsDatabase-env-1.us-west-2.elasticbeanstalk.com/webapi/myvert/";
 
     Client client = ClientBuilder.newClient();
+    client.property(ClientProperties.CONNECT_TIMEOUT, 60000);
+    client.property(ClientProperties.READ_TIMEOUT, 60000);
     ExecutorService exec = Executors.newFixedThreadPool(NUM_THREADS);
 
     // Send each record to the Server's POST method via a PostTask
@@ -57,8 +57,8 @@ public class GetClient {
     for (Future<TaskResult> tr : futureResults)
       results.add(tr.get());
     StatGenerator stats = new StatGenerator(results);
-    LatencyChart chart = new LatencyChart(results);
-    chart.generateChart("Part5");
+//    LatencyChart chart = new LatencyChart(results);
+//    chart.generateChart("Part5");
 
     System.out.println("Test Wall time: " + (endTime - startTime) / MS_PER_SEC + " seconds");
     stats.printStats();
