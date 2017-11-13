@@ -29,11 +29,12 @@ public class PostTask implements Callable<TaskResult> {
     private TaskResult result;
     private Client client;
     private static final int BATCH_SIZE = 50;
+    private int timeoutCount = 0;
 
     public PostTask(List<RFIDLiftData> dataList, String url) {
         this.client = ClientBuilder.newClient();
-        client.property(ClientProperties.CONNECT_TIMEOUT, 60000);
-        client.property(ClientProperties.READ_TIMEOUT, 60000);
+        client.property(ClientProperties.CONNECT_TIMEOUT, 120000);
+        client.property(ClientProperties.READ_TIMEOUT, 120000);
         this.webTarget = client.target(url);
         this.dataList = dataList;
         this.result = new TaskResult();
@@ -54,6 +55,8 @@ public class PostTask implements Callable<TaskResult> {
         }
         catch (Exception e) {
             e.printStackTrace();
+            System.out.println("" + timeoutCount);
+            timeoutCount++;
         }
         long end = System.currentTimeMillis();
         result.incrementRequest();
@@ -72,11 +75,6 @@ public class PostTask implements Callable<TaskResult> {
         for(List<RFIDLiftData> data : Lists.partition(this.dataList, BATCH_SIZE)){
             makePostRequest(data);
         }
-//        for(RFIDLiftData data : this.dataList){
-//            List<RFIDLiftData> singleData = new ArrayList<>();
-//            singleData.add(data);
-//            makePostRequest(singleData);
-//        }
 
         client.close();
         return this.result;

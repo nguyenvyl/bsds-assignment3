@@ -13,11 +13,10 @@ import bsdsass2testdata.RFIDLiftData;
  */
 public class DataReader {
 
-  public List<RFIDLiftData> readData() {
+  public List<RFIDLiftData> readData(String filePath) {
 
     // System independent newline
     String newline = System.getProperty("line.separator");
-    String filePath = "C:\\Users\\BRF8\\IdeaProjects\\school\\BSDS_Assignment3\\SkiServer\\src\\rawfiles\\BSDSAssignment2Day1.ser";
 
     // file and stream for input
     FileInputStream fis = null;
