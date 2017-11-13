@@ -8,14 +8,10 @@ import java.util.concurrent.Callable;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 
-/**
- * Created by irenakushner on 10/17/17.
- */
-
 public class GetTask implements Callable<TaskResult> {
 
-  private WebTarget webTarget;
-  private TaskResult result;
+  private final WebTarget webTarget;
+  private final TaskResult result;
 
   public GetTask(WebTarget webTarget) {
     this.webTarget = webTarget;

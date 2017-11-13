@@ -1,10 +1,6 @@
 package assignment2.bsds;
 
-import com.sun.org.apache.regexp.internal.RE;
-
-import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.*;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
