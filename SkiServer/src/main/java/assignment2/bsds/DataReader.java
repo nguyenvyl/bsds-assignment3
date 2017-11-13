@@ -15,13 +15,10 @@ public class DataReader {
 
   public List<RFIDLiftData> readData(String filePath) {
 
-    // System independent newline
-    String newline = System.getProperty("line.separator");
-
-    // file and stream for input
+      // file and stream for input
     FileInputStream fis = null;
     ObjectInputStream ois = null;
-    ArrayList<RFIDLiftData> RFIDDataIn = new ArrayList<RFIDLiftData>();
+    ArrayList<RFIDLiftData> RFIDDataIn = new ArrayList<>();
 
     try
     {

@@ -3,7 +3,6 @@ package assignment2.bsds;
 import bsdsass2testdata.RFIDLiftData;
 import com.google.common.collect.Lists;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +14,6 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 
 /**
@@ -25,9 +23,9 @@ import org.glassfish.jersey.client.ClientProperties;
 public class PostTask implements Callable<TaskResult> {
 
     private List<RFIDLiftData> dataList;
-    private WebTarget webTarget;
-    private TaskResult result;
-    private Client client;
+    private final WebTarget webTarget;
+    private final TaskResult result;
+    private final Client client;
     private static final int BATCH_SIZE = 50;
     private int timeoutCount = 0;
 

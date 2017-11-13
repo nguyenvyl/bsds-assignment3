@@ -1,10 +1,6 @@
-
 package assignment2.bsds;
 
-/**
- *
- * @author Vy
- */
+
 public class RequestMetrics implements Comparable<RequestMetrics> {
    private String requestType;
    private double responseTime;

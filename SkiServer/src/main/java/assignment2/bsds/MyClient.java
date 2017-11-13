@@ -5,15 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
-import org.glassfish.jersey.client.ClientProperties;
 
 public class MyClient {
 
@@ -27,8 +18,6 @@ public class MyClient {
         dayFiles.put("3", "C:\\Users\\BRF8\\school\\BSDSAssignment2Day3.ser");
         dayFiles.put("4", "C:\\Users\\BRF8\\school\\BSDSAssignment2Day4.ser");
         dayFiles.put("5", "C:\\Users\\BRF8\\school\\BSDSAssignment2Day5.ser");
-//        dayFiles.put("1", "C:\\Users\\BRF8\\school\\BSDSAssignment2Day1.ser");
-
 
         List<TaskResult> postResults = new ArrayList<>();
         List<TaskResult> getResults = new ArrayList<>();
